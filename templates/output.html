@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>🌾AgriGuru</title>
+
+  <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" />
+  <link href="static/css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+  <nav id="sidebar-wrapper" class="d-none">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand"><a href="#page-top">Agents of AI 🤖</a></li>
+      <li class="sidebar-nav-item"><a href="/#home">Home</a></li>
+      <li class="sidebar-nav-item"><a href="/#about">About</a></li>
+      <li class="sidebar-nav-item"><a href="/#services">Services</a></li>
+      <li class="sidebar-nav-item"><a href="/#contacts">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Advisory Output Section -->
+  <section class="content-section text-white text-center" id="services" style="background-image: url('static/assets/img/corn.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div style="background-color: rgba(0, 0, 0, 0.5); padding: 60px 20px;">
+      <div class="container px-4 px-lg-5">
+      <div class="content-section-heading">
+        <h2 class="text-white fw-bold display-6 mb-4">AgriGuru: Intelligent Agricultural Advisory System</h2>
+      </div> <br>
+
+      {% if location and weather %}
+        <div class="fs-5 alert alert-info p-3">
+          <strong>📍 Location:</strong> {{ location }}<br>
+          <strong>🌦️ Weather:</strong> {{ weather }}
+        </div>
+      {% endif %}<br>
+
+      <div class="fs-5 row d-flex align-items-start">
+        <!-- Left Column: Radio Buttons -->
+        <div class="fs-5 col-md-3 text-start">
+          <h5 style="color: rgb(255, 255, 255);"><strong>Select Advisory Section:</strong></h5><br>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="advisory" value="Recommended" id="rec" checked>
+            <label class="form-check-label text-white" for="rec">Recommended Crops</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="advisory" value="Advisory" id="adv">
+            <label class="form-check-label text-white" for="adv">Crop Advisory</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="advisory" value="Sustainable" id="sus">
+            <label class="form-check-label text-white" for="sus">Sustainable Practices</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="advisory" value="Yield" id="yie">
+            <label class="form-check-label text-white" for="yie">Yield Improvement Tips</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="advisory" value="Precautions" id="pre">
+            <label class="form-check-label text-white" for="pre">Weather Precautions</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="advisory" value="Market" id="mar">
+            <label class="form-check-label text-white" for="mar">Market Trends</label>
+          </div>
+        </div>
+
+        <!-- Right Column: Output Box (2 lines below radios) -->
+        <div class="fs-4 col-md-9 text-start d-flex align-items-start">
+          <div id="result-box" class="fs-4 p-3 rounded" style="background-color: rgba(255, 255, 255, 0.1); color: rgb(255, 255, 255); width: 100%; margin-top: 4rem;">
+
+            <div id="Recommended" class="advisory-content" style="display: block;">
+              {{ recommended|safe }}
+            </div>
+            <div id="Advisory" class="advisory-content" style="display: none;">
+              {{ advisory|safe }}
+            </div>
+            <div id="Sustainable" class="advisory-content" style="display: none;">
+              {{ sustainable|safe }}
+            </div>
+            <div id="Yield" class="advisory-content" style="display: none;">
+              {{ yieldtips|safe }}
+            </div>
+            <div id="Precautions" class="advisory-content" style="display: none;">
+              {{ precautions|safe }}
+            </div>
+            <div id="Market" class="advisory-content" style="display: none;">
+              {{ market|safe }}
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5 text-white">
+          <h3 class="mb-4"><strong>Empowering Farmers Through AI</strong></h3>
+        
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <p class="mb-3 fs-5"><strong>Farmer-First Design</strong> – Easy to use, even in rural connectivity environments.</p>
+              <p class="mb-3 fs-5"><strong>Powered by AI</strong> – Leverages cutting-edge models for better accuracy.</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container px-4 px-lg-5 text-dark" id="contacts">
+        <h2 class="mb-2">📱Contact Us</h2><br><br>
+        <ul class="list-inline mb-5">
+          <li class="list-inline-item text-center mx-4">
+              <img src="static/assets/img/Saumya.jpeg" class="rounded-circle mb-2" width="80" height="80" alt="Saumya">
+              <div><strong>Saumya Mohandas N</strong></div>
+              <div>Senior Analyst - Data Science</div>
+              <a class="social-link rounded-circle text-white mt-1" href="https://www.linkedin.com/in/saumya-mohandas-n-97169693/" target="_blank" style="background-color: #0077b5; display: inline-block; width: 36px; height: 36px; line-height: 36px;">
+                <i class="icon-social-linkedin"></i>
+              </a>
+            </li>
+            <li class="list-inline-item text-center mx-4">
+                <img src="static/assets/img/Hari.jpeg" class="rounded-circle mb-2" width="80" height="80" alt="Hari">
+                <div><strong>Hari Prabu S</strong></div>
+                <div>Senior Analyst - Analytics Technology</div>
+                <a class="social-link rounded-circle text-white mt-1" href="https://www.linkedin.com/in/hariprabu741/" target="_blank" style="background-color: #0077b5; display: inline-block; width: 36px; height: 36px; line-height: 36px;">
+                  <i class="icon-social-linkedin"></i>
+                </a>
+              </li>
+          </ul>
+          
+        <p class="text-muted small mb-0">Copyright &copy; Agents of AI</p>
+    </div>
+</footer>
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/scripts.js"></script>
+
+  <!-- Toggle Navigation Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const sidebar = document.getElementById("sidebar-wrapper");
+      const icon = menuToggle.querySelector("i");
+
+      menuToggle.addEventListener("click", function (e) {
+        e.preventDefault();
+        sidebar.classList.toggle("d-none");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-xmark");
+      });
+    });
+  </script>
+
+  <!-- Radio Button Output Toggle -->
+  <script>
+    const radios = document.getElementsByName("advisory");
+    radios.forEach(radio => {
+      radio.addEventListener("change", function () {
+        const sections = document.querySelectorAll("#result-box > div");
+        sections.forEach(sec => sec.style.display = "none");
+        const selectedDiv = document.getElementById(this.value);
+        if (selectedDiv) selectedDiv.style.display = "block";
+      });
+    });
+  </script>
+
+  <!-- Styling -->
+  <style>
+    .advisory-content {
+      font-size: 1.3rem;
+      line-height: 1.9;
+    }
+    label {
+      cursor: pointer;
+    }
+    .form-check {
+      margin-bottom: 1rem;
+    }
+  </style>
+</body>
+</html>
