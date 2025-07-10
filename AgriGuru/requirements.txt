@@ -1,7 +1,0 @@
-Flask
-python-dotenv
-requests
-google-generativeai
-folium
-geopy
-gunicorn
